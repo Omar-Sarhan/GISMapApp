@@ -91,13 +91,13 @@ import Polyline from "https://js.arcgis.com/4.33/@arcgis/core/geometry/Polyline.
             });
 
     const isInside = context.geometryEngine.contains(context.circle, newPoint);
-    //if (!isInside) {
-    //    msg.textContent = "Point is outside the allowed circle. Please enter a valid point.";
-    //    msg.classList.remove("text-success");
-    //    msg.classList.add("text-danger");
+    if (!isInside) {
+        msg.textContent = "Point is outside the allowed circle. Please enter a valid point.";
+        msg.classList.remove("text-success");
+        msg.classList.add("text-danger");
 
-    //return;
-    //        }
+    return;
+            }
 
     const data = {
         PointName: name,
