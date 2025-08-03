@@ -112,16 +112,14 @@ import Polyline from "https://js.arcgis.com/4.33/@arcgis/core/geometry/Polyline.
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
             });
-            let resultText = await response.text();  // ← بنقرأه كنص
+            let resultText = await response.text();  
 
             if (!response.ok) {
-                throw new Error(resultText); // ← ما نحاول نحولها لـ JSON إذا كانت Error
+                throw new Error(resultText); 
             }
 
-            const result = JSON.parse(resultText); // ← إذا نجحت نحولها لـ JSON
-            if (!response.ok) {
-                throw new Error(result.messages); // trigger catch below
-            }
+            const result = JSON.parse(resultText); 
+            
             
             await getAllPointsAndRender(context);
 
